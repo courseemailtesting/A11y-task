@@ -10,13 +10,17 @@ const NavLi = styled('li')`
 `;
 
 const NavbarContainer = styled('header')`
-  height: 60px;
+  margin-bottom: 20px;
   padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+
   @media screen and (min-width: ${() => breakpoints.phone}) {
+    margin-bottom: 0px;
+    flex-direction: row;
     padding: 0 120px;
   }
 
-  display: flex;
   justify-content: space-between;
   align-items: center;
 
@@ -61,7 +65,7 @@ export function Navbar() {
           <Link href='/empty-page'>About us</Link>
         </NavLi>
         <NavLi>
-          <Link href='/claim-report'>Claim report</Link>
+          <Link href='/claim-report/step-1'>Claim report</Link>
         </NavLi>
         <NavLi>
           <Link href='/empty-page'>Contact</Link>

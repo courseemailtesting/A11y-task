@@ -23,23 +23,38 @@ const FotterNavbar = styled('nav')`
   display: flex;
 `;
 
+const ListContainer = styled('div')`
+  margin: 0 40px 0 0;
+  &:nth-child(1) {
+    margin-left: 0px;
+    @media screen and (min-width: ${() => breakpoints.phone}) {
+      margin-left: 40px;
+    }
+  }
+`;
+
 const Ul = styled('ul')`
   list-style-type: none;
   padding: 0;
 `;
 
+const Li = styled('li')`
+  margin: 10px 0;
+`;
+
+const TextIconContainer = styled('div')`
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  align-self: flex-start;
+`;
+
 export function Footer() {
   return (
     <FooterContainer>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignContent: 'center',
-          alignItems: 'center',
-          alignSelf: 'flex-start',
-        }}
-      >
+      <TextIconContainer>
         <span
           style={{
             marginRight: '10px',
@@ -52,62 +67,62 @@ export function Footer() {
             marginTop: '5px',
           }}
         />
-      </div>
+      </TextIconContainer>
       <FotterNavbar>
-        <div style={{ margin: '0 40px' }}>
+        <ListContainer>
           <b>About us</b>
           <Ul>
             <Link href='/'>
-              <li>Newsroom</li>
+              <Li>Newsroom</Li>
             </Link>
             <Link href='/'>
-              <li>Careers</li>
+              <Li>Careers</Li>
             </Link>
             <Link href='/'>
-              <li>Our shrefry</li>
+              <Li>Our shrefry</Li>
             </Link>
             <Link href='/'>
-              <li>Customer Stories</li>
+              <Li>Customer Stories</Li>
             </Link>
           </Ul>
-        </div>
-        <div style={{ margin: '0 40px' }}>
+        </ListContainer>
+        <ListContainer>
           <b>Producs</b>
           <Ul>
             <Link href='/'>
-              <li>Vacation / Holiday</li>
+              <Li>Vacation / Holiday</Li>
             </Link>
             <Link href='/'>
-              <li>Student / Scholar</li>
+              <Li>Student / Scholar</Li>
             </Link>
             <Link href='/'>
-              <li>Mission</li>
+              <Li>Mission</Li>
             </Link>
             <Link href='/'>
-              <li>Marine Captain / Crew</li>
+              <Li>Marine Captain / Crew</Li>
             </Link>
             <Link href='/'>
-              <li>Employer / Business Traveler</li>
+              <Li>Employer / Business Traveler</Li>
             </Link>
           </Ul>
-        </div>
-        <div>
+        </ListContainer>
+        <ListContainer>
           <b>Members</b>
           <Ul>
             <Link href='/'>
-              <li>Forms Library</li>
+              <Li>Forms Library</Li>
             </Link>
             <Link href='/'>
-              <li>Find a Doctor</li>
+              <Li>Find a Doctor</Li>
             </Link>
             <Link href='/'>
-              <li>Renew Policy</li>
+              <Li>Renew PoLicy</Li>
             </Link>
             <Link href='/'>
-              <li>Claims Center</li>
+              <Li>Claims Center</Li>
             </Link>
           </Ul>
-        </div>
+        </ListContainer>
       </FotterNavbar>
     </FooterContainer>
   );

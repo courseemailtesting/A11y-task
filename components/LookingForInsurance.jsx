@@ -4,11 +4,14 @@ import { breakpoints } from '../constants/breakpoint';
 const MainContainer = styled('div')`
   height: 150px;
   padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+
   @media screen and (min-width: ${() => breakpoints.phone}) {
     padding: 40px 120px;
+    flex-direction: row;
   }
 
-  display: flex;
   justify-content: space-between;
   align-items: center;
 `;
@@ -20,11 +23,17 @@ const TextContainer = styled('div')`
 
 const ButtonsContainer = styled('div')`
   display: flex;
+  margin: 20px;
 `;
 
 const Button = styled('button')`
   height: 38px;
-  width: 160px;
+  width: 120px;
+  @media screen and (min-width: ${() => breakpoints.phone}) {
+    height: 38px;
+    width: 160px;
+  }
+
   border-width: 1px;
   border-radius: 3px;
 `;

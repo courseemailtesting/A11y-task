@@ -26,7 +26,11 @@ const descriptions = [
 ];
 
 const TileContainer = styled('div')`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media screen and (min-width: ${() => breakpoints.phone}) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `;
 
 function Tile({ description }) {
@@ -51,7 +55,7 @@ export function PicturesHorizontal() {
       <Header>Explore our travel topics</Header>
       <TileContainer>
         {descriptions.map((description) => (
-          <Tile description={description} />
+          <Tile key='description' description={description} />
         ))}
       </TileContainer>
     </PicturesHorizontalContainer>
