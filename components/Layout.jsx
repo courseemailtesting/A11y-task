@@ -6,6 +6,7 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 
 const PaddingWrapper = styled('main')`
+  font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
   padding: 0;
   display: flex;

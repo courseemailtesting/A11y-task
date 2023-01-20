@@ -5,6 +5,7 @@ import { formStepsTitles } from 'pages/claim-report/[step]';
 import Link from 'next/link';
 import { Step1 } from '@components/ReportForm/Step1';
 import { Step2 } from '@components/ReportForm/Step2';
+import { Step3 } from '@components/ReportForm/Step3';
 
 const FormStepsContainer = styled('div')`
   display: flex;
@@ -48,6 +49,8 @@ function Step({ currentStep }) {
       return <Step1 />;
     case 2:
       return <Step2 />;
+    case 3:
+      return <Step3 />;
   }
   return <Step1 />;
 }

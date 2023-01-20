@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { breakpoints } from '../../constants/breakpoint';
 import Layout from '@components/Layout';
 import { ReportForm } from '@components/ReportForm/ReportForm';
-import { useState } from 'react';
 
 const StyledDiv = styled('div')`
   border-top: 2px solid #999;
