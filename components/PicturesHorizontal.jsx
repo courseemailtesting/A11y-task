@@ -33,9 +33,10 @@ const TileContainer = styled('div')`
   }
 `;
 
-function Tile({ description }) {
+function Tile({ description, index }) {
   return (
-    <div
+    <img
+      aria-labellby={`description-${index}`}
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -44,8 +45,8 @@ function Tile({ description }) {
       }}
     >
       <Picture />
-      {description}
-    </div>
+      <span id={`description-${index}`}>{description}</span>
+    </img>
   );
 }
 
@@ -54,8 +55,8 @@ export function PicturesHorizontal() {
     <PicturesHorizontalContainer>
       <Header>Explore our travel topics</Header>
       <TileContainer>
-        {descriptions.map((description) => (
-          <Tile key='description' description={description} />
+        {descriptions.map((description, index) => (
+          <Tile key='description' description={description} index={index} />
         ))}
       </TileContainer>
     </PicturesHorizontalContainer>

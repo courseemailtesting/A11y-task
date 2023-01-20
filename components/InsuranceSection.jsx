@@ -20,7 +20,7 @@ const MainBannerContainer = styled('div')`
   }
 `;
 
-const ImageReplacement = styled('div')`
+const ImageReplacement = styled('img')`
   grid-area: image;
   width: 100%;
   height: 100%;
@@ -42,7 +42,7 @@ const Li = styled('li')`
 export function InsuranceSection() {
   return (
     <MainBannerContainer>
-      <ImageReplacement />
+      <ImageReplacement alt='alt text' />
       <ContentContainer>
         <SecondHeding>Insurance for International Visitors</SecondHeding>
         <span>

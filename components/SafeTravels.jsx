@@ -21,7 +21,7 @@ const MainBannerContainer = styled('div')`
   }
 `;
 
-const ImageReplacement = styled('div')`
+const ImageReplacement = styled('image')`
   grid-area: image;
   border: 1px solid black;
 `;
@@ -46,7 +46,7 @@ export function SafeTravels() {
           }
         </Span>
       </ContentContainer>
-      <ImageReplacement />
+      <ImageReplacement alt='Alt image text' />
     </MainBannerContainer>
   );
 }
