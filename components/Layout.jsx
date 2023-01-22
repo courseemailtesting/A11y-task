@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 
 import { breakpoints } from '../constants/breakpoint';
@@ -25,21 +25,32 @@ const PaddingWrapper = styled('main')`
   @media screen and (min-width: ${() => breakpoints.paddingHome}) {
     padding: 0 12%;
   }
+
+  button:hover {
+    cursor: pointer;
+  }
 `;
+
+const theme = {
+  primary: '#B2ABF2',
+  secondary: '#89043D',
+};
 
 export default function Layout({ title, children }) {
   return (
-    <div className='container'>
-      <Head>
-        <title>{title}</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+    <ThemeProvider theme={theme}>
+      <div className='container'>
+        <Head>
+          <title>{title}</title>
+          <link rel='icon' href='/favicon.ico' />
+        </Head>
 
-      <PaddingWrapper>
-        <Navbar />
-        <main style={{ flexGrow: 1 }}>{children}</main>
-        <Footer />
-      </PaddingWrapper>
-    </div>
+        <PaddingWrapper>
+          <Navbar />
+          <main style={{ flexGrow: 1 }}>{children}</main>
+          <Footer />
+        </PaddingWrapper>
+      </div>
+    </ThemeProvider>
   );
 }

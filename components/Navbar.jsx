@@ -7,6 +7,7 @@ const NavLi = styled('li')`
   display: flex;
   justify-self: flex-end;
   padding: 0 10px;
+  align-items: center;
 `;
 
 const NavbarContainer = styled('header')`
@@ -25,9 +26,21 @@ const NavbarContainer = styled('header')`
   align-items: center;
 
   list-style-type: none;
+  a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
 `;
 
 const Nav = styled('nav')`
+  height: 100%;
   display: flex;
   justify-items: flex-end;
 `;
@@ -35,7 +48,7 @@ const Nav = styled('nav')`
 export function Navbar() {
   return (
     <NavbarContainer>
-      <Link href='/'>
+      <Link href='/' tabIndex={0}>
         <div
           style={{
             display: 'flex',
@@ -62,13 +75,13 @@ export function Navbar() {
           <Link href='/'>Insurance</Link>
         </NavLi>
         <NavLi>
-          <Link href='/empty-page'>About us</Link>
+          <Link href='/empty?header=About us'>About us</Link>
         </NavLi>
         <NavLi>
           <Link href='/claim-report/step-1'>Claim report</Link>
         </NavLi>
         <NavLi>
-          <Link href='/empty-page'>Contact</Link>
+          <Link href='/empty?header=Contact'>Contact</Link>
         </NavLi>
       </Nav>
     </NavbarContainer>

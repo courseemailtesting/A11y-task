@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 const MainBannerContainer = styled('div')`
@@ -27,6 +28,11 @@ const Button = styled('button')`
 
   background-color: black;
   color: white;
+  &:focus {
+    outline: none !important;
+    border: 1px solid white;
+    box-shadow: 0 0 10px black;
+  }
 `;
 
 const Span = styled('span')`
@@ -34,6 +40,7 @@ const Span = styled('span')`
 `;
 
 export function MainBanner() {
+  const router = useRouter();
   return (
     <MainBannerContainer>
       <BannerCenterContainer>
@@ -43,7 +50,9 @@ export function MainBanner() {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
           }
         </Span>
-        <Button>Order now</Button>
+        <Button onClick={() => router.push('/empty?header=Order now')}>
+          Order now
+        </Button>
       </BannerCenterContainer>
     </MainBannerContainer>
   );

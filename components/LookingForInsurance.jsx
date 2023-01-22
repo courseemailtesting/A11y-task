@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { breakpoints } from '../constants/breakpoint';
 
@@ -47,9 +48,16 @@ const LeftButton = styled(Button)`
 const RightButton = styled(Button)`
   background-color: black;
   color: white;
+
+  &:focus {
+    outline: none !important;
+    border: 1px solid white;
+    box-shadow: 0 0 10px black;
+  }
 `;
 
 export function LookingForInsurance() {
+  const router = useRouter();
   return (
     <MainContainer>
       <TextContainer>
@@ -57,8 +65,14 @@ export function LookingForInsurance() {
         <span>Contact us to order now</span>
       </TextContainer>
       <ButtonsContainer>
-        <LeftButton>Call us</LeftButton>
-        <RightButton>Send a Message</RightButton>
+        <LeftButton onClick={() => router.push('/empty?header=Call us')}>
+          Call us
+        </LeftButton>
+        <RightButton
+          onClick={() => router.push('/empty?header=Send a Message')}
+        >
+          Send a Message
+        </RightButton>
       </ButtonsContainer>
     </MainContainer>
   );

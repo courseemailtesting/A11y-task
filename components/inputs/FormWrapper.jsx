@@ -1,4 +1,4 @@
-export default function FormWrapper({ children }) {
+export default function FormWrapper({ children, onSubmit }) {
   return (
     <form
       style={{
@@ -8,6 +8,7 @@ export default function FormWrapper({ children }) {
         width: '80%',
         padding: '0 10%',
       }}
+      onSubmit={onSubmit}
     >
       {children}
     </form>

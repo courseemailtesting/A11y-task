@@ -21,7 +21,7 @@ const MainBannerContainer = styled('div')`
   }
 `;
 
-const ImageReplacement = styled('image')`
+const ImageReplacement = styled('img')`
   grid-area: image;
   border: 1px solid black;
 `;

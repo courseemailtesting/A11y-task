@@ -1,46 +1,76 @@
-export function RadioButtons() {
+import styled from 'styled-components';
+
+const StyledRadioInput = styled('input')`
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.05em solid currentColor;
+  border-radius: 50%;
+`;
+export function RadioButtons({ defaultValue, setPurposeOfTravel }) {
+  const onRadioChange = (e) => setPurposeOfTravel(e.target.value);
   return (
-    <fieldset style={{ border: 'none' }}>
-      <legend>Purpose of travel</legend>
+    <fieldset style={{ border: 'none', padding: '0', margin: '15px 0' }}>
+      <legend>
+        <b>Purpose of travel</b>
+      </legend>
 
       <div>
-        <input
+        <StyledRadioInput
           type='radio'
           id='tourism'
           name='purpose-of-travel'
           value='tourism'
-          checked
+          defaultChecked={defaultValue === 'tourism'}
+          onChange={onRadioChange}
         />
-        <label for='tourism'>tourism</label>
+        <label htmlFor='tourism' style={{ padding: '5px' }}>
+          tourism
+        </label>
       </div>
 
       <div>
-        <input
+        <StyledRadioInput
           type='radio'
-          id='study / mental work'
+          id='study-mental-work'
           name='purpose-of-travel'
+          defaultChecked={defaultValue === 'study / mental work'}
           value='study / mental work'
+          onChange={onRadioChange}
         />
-        <label for='study / mental work'>study / mental work</label>
+        <label htmlFor='study-mental-work' style={{ padding: '5px' }}>
+          study / mental work
+        </label>
       </div>
 
       <div>
-        <input
+        <StyledRadioInput
           type='radio'
-          id='physical work'
+          id='physical-work'
           name='purpose-of-travel'
+          defaultChecked={defaultValue === 'physical work'}
           value='physical work'
+          onChange={onRadioChange}
         />
-        <label for='physical work'>physical work</label>
+        <label htmlFor='physical-work' style={{ padding: '5px' }}>
+          physical work
+        </label>
       </div>
       <div>
-        <input
+        <StyledRadioInput
           type='radio'
-          id='physical work'
+          id='high-risk-sport'
           name='purpose-of-travel'
-          value='physical work'
+          defaultChecked={defaultValue === 'high-risk sport'}
+          value='high-risk sport'
+          onChange={onRadioChange}
         />
-        <label for='physical work'>physical work</label>
+        <label htmlFor='high-risk-sport' style={{ padding: '5px' }}>
+          high-risk sport
+        </label>
       </div>
     </fieldset>
   );

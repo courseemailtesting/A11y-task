@@ -12,10 +12,15 @@ const PicturesHorizontalContainer = styled('div')`
   }
 `;
 
-const Picture = styled('div')`
+const Picture = styled('img')`
+  width: 100%;
   aspect-ratio: 1;
   border: 1px solid black;
   margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 `;
 
 const descriptions = [
@@ -27,6 +32,8 @@ const descriptions = [
 
 const TileContainer = styled('div')`
   display: grid;
+  gap: 15px;
+
   grid-template-columns: 1fr 1fr;
   @media screen and (min-width: ${() => breakpoints.phone}) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -35,18 +42,13 @@ const TileContainer = styled('div')`
 
 function Tile({ description, index }) {
   return (
-    <img
-      aria-labellby={`description-${index}`}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        flexGrow: 1,
-        margin: '1rem',
-      }}
-    >
-      <Picture />
+    <div>
+      <Picture
+        alt={`alt-text-description-${index}`}
+        aria-describedby={`description-${index}`}
+      />
       <span id={`description-${index}`}>{description}</span>
-    </img>
+    </div>
   );
 }
 
@@ -56,7 +58,7 @@ export function PicturesHorizontal() {
       <Header>Explore our travel topics</Header>
       <TileContainer>
         {descriptions.map((description, index) => (
-          <Tile key='description' description={description} index={index} />
+          <Tile key={description} description={description} index={index} />
         ))}
       </TileContainer>
     </PicturesHorizontalContainer>

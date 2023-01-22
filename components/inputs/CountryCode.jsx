@@ -1,11 +1,23 @@
-export function CountryCode() {
+export function CountryCode({ defaultValue, setCountry }) {
   return (
     <div
       style={{ display: 'flex', flexDirection: 'column', marginBottom: '10px' }}
     >
-      <label for='country'>Country</label>
+      <b>
+        <label htmlFor='country'>Country</label>
+      </b>
 
-      <select id='country' name='country' class='form-control'>
+      <select
+        id='country'
+        name='country'
+        className='form-control'
+        defaultValue={defaultValue ?? ''}
+        onChange={(e) => setCountry(e.target.value)}
+        style={{ height: '30px', lineHeight: '25px', fontSize: '18px' }}
+      >
+        <option value='' disabled hidden>
+          Choose here
+        </option>
         <option value='Afghanistan'>Afghanistan</option>
         <option value='Åland Islands'>Åland Islands</option>
         <option value='Albania'>Albania</option>

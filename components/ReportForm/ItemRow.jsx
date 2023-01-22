@@ -1,5 +1,6 @@
 import { PenIcon } from '@components/icons/PenIcon';
 import { TrashIcon } from '@components/icons/TrashIcon';
+import { breakpoints } from 'constants/breakpoint';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const EnhancedIcon = styled('button')`
@@ -17,7 +18,14 @@ const EnhancedIcon = styled('button')`
 
 const ItemRowContainer = styled('div')`
   display: grid;
-  grid-template-columns: 70px 1fr 60px 40px;
+  grid-template-columns: 70px 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin-bottom: 30px;
+
+  @media screen and (min-width: ${() => breakpoints.phone}) {
+    grid-template-columns: 70px 1fr 60px 40px;
+    grid-template-rows: 1fr;
+  }
   align-items: center;
 `;
 
@@ -26,7 +34,8 @@ export function ItemRow({ id, amount, name, removeItem, openEditModal }) {
     <ItemRowContainer role='listitem'>
       <b>{amount}</b> <span>{name}</span>
       <EnhancedIcon
-        tabIndex={1}
+        type='button'
+        tabIndex={0}
         style={{ marginRight: '20px' }}
         onClick={() => {
           removeItem(id);
@@ -34,7 +43,11 @@ export function ItemRow({ id, amount, name, removeItem, openEditModal }) {
       >
         <TrashIcon />
       </EnhancedIcon>
-      <EnhancedIcon tabIndex={1} onClick={() => openEditModal(id)}>
+      <EnhancedIcon
+        type='button'
+        tabIndex={0}
+        onClick={() => openEditModal({ id, amount, name })}
+      >
         <PenIcon />
       </EnhancedIcon>
     </ItemRowContainer>

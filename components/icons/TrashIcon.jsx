@@ -7,6 +7,8 @@ export function TrashIcon({ onClick }) {
       height='20px'
       viewBox='0 0 256 256'
       onClick={onClick}
+      role='img'
+      aria-label='remove item'
     >
       <defs></defs>
       <g

@@ -17,6 +17,13 @@ const FooterContainer = styled('footer')`
 
   align-content: center;
   justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: black;
+    box-sizing: border-box;
+    padding: 10px 5px 10px 0;
+  }
 `;
 
 const FotterNavbar = styled('nav')`
@@ -72,55 +79,75 @@ export function Footer() {
         <ListContainer>
           <b>About us</b>
           <Ul>
-            <Link href='/'>
-              <Li>Newsroom</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Careers</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Our shrefry</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Customer Stories</Li>
-            </Link>
+            <Li>
+              <Link href='/empty?header=Newsroom'>Newsroom</Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Careers'>Careers</Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Our shrefry'>Our shrefry</Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Customer Stories'>
+                Customer Stories
+              </Link>
+            </Li>
           </Ul>
         </ListContainer>
         <ListContainer>
           <b>Producs</b>
           <Ul>
-            <Link href='/'>
-              <Li>Vacation / Holiday</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Student / Scholar</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Mission</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Marine Captain / Crew</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Employer / Business Traveler</Li>
-            </Link>
+            <Li>
+              <Link href='/empty?header=Vacation / Holiday'>
+                Vacation / Holiday
+              </Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Student / Scholar'>
+                Student / Scholar
+              </Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Mission'>Mission</Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Marine Captain / Crew'>
+                Marine Captain / Crew
+              </Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Employer / Business Traveler'>
+                Employer / Business Traveler
+              </Link>
+            </Li>
           </Ul>
         </ListContainer>
         <ListContainer>
           <b>Members</b>
           <Ul>
-            <Link href='/'>
-              <Li>Forms Library</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Find a Doctor</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Renew PoLicy</Li>
-            </Link>
-            <Link href='/'>
-              <Li>Claims Center</Li>
-            </Link>
+            <Li>
+              <Link href='/empty?header=Forms Library'>Forms Library</Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Find a Doctor'>Find a Doctor</Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Renew Policy'>Renew Policy</Link>
+            </Li>
+
+            <Li>
+              <Link href='/empty?header=Claims Center'>Claims Center</Link>
+            </Li>
           </Ul>
         </ListContainer>
       </FotterNavbar>
