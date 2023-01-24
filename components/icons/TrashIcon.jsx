@@ -1,4 +1,4 @@
-export function TrashIcon({ onClick }) {
+export function TrashIcon({ onClick, labelAria }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -8,7 +8,7 @@ export function TrashIcon({ onClick }) {
       viewBox='0 0 256 256'
       onClick={onClick}
       role='img'
-      aria-label='remove item'
+      aria-label={labelAria}
     >
       <defs></defs>
       <g

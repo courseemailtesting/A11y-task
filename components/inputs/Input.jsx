@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 
 const InputContainer = styled('div')`
@@ -12,7 +13,7 @@ const StyledInput = styled('input')`
   font-size: 18px;
 `;
 
-export function Input(props) {
+export const Input = forwardRef(function Input(props, ref) {
   const { label, describedby, dollars, ...passedDownProps } = props;
   return (
     <InputContainer>
@@ -23,6 +24,7 @@ export function Input(props) {
         {props.label}
       </label>
       <StyledInput
+        ref={ref}
         describedby={props.describedby ? `describes-${props.id}` : undefined}
         {...passedDownProps}
       />
@@ -31,4 +33,4 @@ export function Input(props) {
       )}
     </InputContainer>
   );
-}
+});

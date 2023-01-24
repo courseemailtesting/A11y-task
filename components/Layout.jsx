@@ -5,7 +5,7 @@ import { breakpoints } from '../constants/breakpoint';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 
-const PaddingWrapper = styled('main')`
+const PaddingWrapper = styled('div')`
   font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
   padding: 0;
@@ -36,18 +36,36 @@ const theme = {
   secondary: '#89043D',
 };
 
+const StyledSkippingLink = styled('a')`
+  background-color: black;
+  color: white;
+  height: 30px;
+  left: 50%;
+  padding: 8px;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+
+  &:focus {
+    transform: translateY(0%);
+  }
+`;
+
 export default function Layout({ title, children }) {
   return (
     <ThemeProvider theme={theme}>
       <div className='container'>
         <Head>
-          <title>{title}</title>
+          <title>{title ?? 'The Insurer'}</title>
           <link rel='icon' href='/favicon.ico' />
         </Head>
 
+        <StyledSkippingLink href='#main'>Skip to content</StyledSkippingLink>
         <PaddingWrapper>
           <Navbar />
-          <main style={{ flexGrow: 1 }}>{children}</main>
+          <main id='main' style={{ flexGrow: 1 }}>
+            {children}
+          </main>
           <Footer />
         </PaddingWrapper>
       </div>

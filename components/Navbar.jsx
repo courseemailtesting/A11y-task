@@ -45,6 +45,11 @@ const Nav = styled('nav')`
   justify-items: flex-end;
 `;
 
+const StyledUl = styled('ul')`
+  display: flex;
+  margin: 0;
+`;
+
 export function Navbar() {
   return (
     <NavbarContainer>
@@ -71,18 +76,20 @@ export function Navbar() {
         </div>
       </Link>
       <Nav>
-        <NavLi>
-          <Link href='/'>Insurance</Link>
-        </NavLi>
-        <NavLi>
-          <Link href='/empty?header=About us'>About us</Link>
-        </NavLi>
-        <NavLi>
-          <Link href='/claim-report/step-1'>Claim report</Link>
-        </NavLi>
-        <NavLi>
-          <Link href='/empty?header=Contact'>Contact</Link>
-        </NavLi>
+        <StyledUl>
+          <NavLi>
+            <Link href='/'>Insurance</Link>
+          </NavLi>
+          <NavLi>
+            <Link href='/empty?header=About us'>About us</Link>
+          </NavLi>
+          <NavLi>
+            <Link href='/claim-report/step-1'>Claim report</Link>
+          </NavLi>
+          <NavLi>
+            <Link href='/empty?header=Contact'>Contact</Link>
+          </NavLi>
+        </StyledUl>
       </Nav>
     </NavbarContainer>
   );

@@ -29,7 +29,17 @@ const ItemRowContainer = styled('div')`
   align-items: center;
 `;
 
-export function ItemRow({ id, amount, name, removeItem, openEditModal }) {
+export function ItemRow({
+  id,
+  amount,
+  name,
+  removeItem,
+  openEditModal,
+  index,
+}) {
+  const TrashcanLabel = `remove item number ${index} in the list with values name:${name} amount:${amount}`;
+  const PenLabel = `edit item number ${index} in the list with values name:${name} amount:${amount}`;
+
   return (
     <ItemRowContainer role='listitem'>
       <b>{amount}</b> <span>{name}</span>
@@ -41,14 +51,14 @@ export function ItemRow({ id, amount, name, removeItem, openEditModal }) {
           removeItem(id);
         }}
       >
-        <TrashIcon />
+        <TrashIcon labelAria={TrashcanLabel} />
       </EnhancedIcon>
       <EnhancedIcon
         type='button'
         tabIndex={0}
         onClick={() => openEditModal({ id, amount, name })}
       >
-        <PenIcon />
+        <PenIcon labelAria={PenLabel} />
       </EnhancedIcon>
     </ItemRowContainer>
   );

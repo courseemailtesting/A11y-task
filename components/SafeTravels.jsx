@@ -46,7 +46,7 @@ export function SafeTravels() {
           }
         </Span>
       </ContentContainer>
-      <ImageReplacement alt='Alt image text' />
+      <ImageReplacement alt='Plane waiting on an brazilian airport to depart' />
     </MainBannerContainer>
   );
 }

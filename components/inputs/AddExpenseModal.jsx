@@ -2,7 +2,7 @@ import ReactModal from 'react-modal';
 
 import { BlackButton, Button, WhiteButton } from '@components/inputs/Button';
 import { Input } from '@components/inputs/Input';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export function AddExpenseModal({
   addItem,
@@ -13,6 +13,8 @@ export function AddExpenseModal({
 }) {
   const [name, setName] = useState(currentlyEditing?.name ?? '');
   const [amount, setAmount] = useState(currentlyEditing?.amount ?? '');
+
+  const ref = useRef();
 
   useEffect(() => {
     setName(currentlyEditing?.name);
@@ -31,49 +33,60 @@ export function AddExpenseModal({
       }}
       isOpen={isModalOpen}
       onRequestClose={closeModal}
-      contentLabel='Expense'
       ariaHideApp={false}
+      aria={{ labelledby: 'expense-modal-header' }}
+      onAfterOpen={() => ref.current.focus()}
     >
-      <h2>Expense</h2>
-      <Input
-        label='Name'
-        onChange={(event) => setName(event.target.value)}
-        value={name}
-        required
-      />
-      <Input
-        label='Price'
-        onChange={(event) => setAmount(event.target.value)}
-        type='number'
-        value={amount}
-        required
-        aria-describedby='currency-info'
-      />
-      <span style={{ marginTop: '-10px' }} id='currency-info'>
-        (value should be provided in US dollars)
-      </span>
-      <div
-        style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (currentlyEditing) {
+            editItem(currentlyEditing?.id, {
+              name,
+              amount: `${amount} $`,
+            });
+          } else {
+            addItem({ name, amount: `${amount} $` });
+          }
+        }}
       >
-        <WhiteButton onClick={closeModal}>Cancel</WhiteButton>
+        <h2 id='expense-modal-header'>Expense</h2>
+        <Input
+          id='expense-name'
+          label='Name'
+          ref={ref}
+          onChange={(event) => setName(event.target.value)}
+          value={name}
+          required
+        />
+        <Input
+          id='price-name'
+          label='Price'
+          onChange={(event) => setAmount(event.target.value)}
+          type='number'
+          value={amount}
+          required
+          aria-describedby='currency-info'
+        />
+        <span style={{ marginTop: '-10px' }} id='currency-info'>
+          (value should be provided in US dollars)
+        </span>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '20px',
+          }}
+        >
+          <WhiteButton onClick={closeModal}>Cancel</WhiteButton>
 
-        {currentlyEditing ? (
-          <BlackButton
-            onClick={() =>
-              editItem(currentlyEditing?.id, {
-                name,
-                amount: `${amount} $`,
-              })
-            }
-          >
-            Edit
-          </BlackButton>
-        ) : (
-          <BlackButton onClick={() => addItem({ name, amount: `${amount} $` })}>
-            Add
-          </BlackButton>
-        )}
-      </div>
+          {currentlyEditing ? (
+            <BlackButton>Edit</BlackButton>
+          ) : (
+            <BlackButton>Add</BlackButton>
+          )}
+        </div>
+      </form>
     </ReactModal>
   );
 }

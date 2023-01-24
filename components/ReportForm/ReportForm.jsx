@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import { breakpoints } from 'constants/breakpoint';
 import { formStepsTitles } from 'pages/claim-report/[step]';
-import Link from 'next/link';
 import { Step1 } from '@components/ReportForm/Step1';
 import { Step2 } from '@components/ReportForm/Step2';
 import { Step3 } from '@components/ReportForm/Step3';
@@ -29,7 +28,7 @@ const FormStep = styled('button')`
   border-radius: 10px;
   flex-grow: 1;
   background-color: ${({ isActive, isClickable }) =>
-    isClickable ? 'darkgray' : 'whitegray'};
+    isClickable ? 'darkgray' : '#DDD'};
 
   border: ${({ isActive }) => (isActive ? '2px solid black' : '')};
   &:hover {
@@ -53,6 +52,7 @@ function FormSteps({ currentStep }) {
               router.push(`/claim-report/step-${key}`);
             }
           }}
+          disabled={currentStep < parseInt(key)}
         >
           {step}
         </FormStep>

@@ -24,10 +24,10 @@ const Picture = styled('img')`
 `;
 
 const descriptions = [
-  'Description is 1',
-  'Description is 2',
-  'Description is 3',
-  'Description is 4',
+  'Renting Vacation Homes',
+  'Trends & Predictions',
+  'Popular Travel Destinations for 2021',
+  'Travel Gear for Safe Travels in 2021',
 ];
 
 const TileContainer = styled('div')`
@@ -43,10 +43,7 @@ const TileContainer = styled('div')`
 function Tile({ description, index }) {
   return (
     <div>
-      <Picture
-        alt={`alt-text-description-${index}`}
-        aria-describedby={`description-${index}`}
-      />
+      <Picture alt={description} aria-describedby={`description-${index}`} />
       <span id={`description-${index}`}>{description}</span>
     </div>
   );

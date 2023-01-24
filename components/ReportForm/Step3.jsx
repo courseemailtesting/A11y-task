@@ -91,9 +91,10 @@ export function Step3() {
         }}
       >
         <SectionContainer role='list'>
-          {itemList.map(({ id, amount, name }) => (
+          {itemList.map(({ id, amount, name }, index) => (
             <ItemRow
               key={id}
+              index={index}
               id={id}
               amount={amount}
               name={name}

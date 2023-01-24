@@ -26,6 +26,7 @@ export function RadioButtons({ defaultValue, setPurposeOfTravel }) {
           value='tourism'
           defaultChecked={defaultValue === 'tourism'}
           onChange={onRadioChange}
+          required
         />
         <label htmlFor='tourism' style={{ padding: '5px' }}>
           tourism
@@ -40,6 +41,7 @@ export function RadioButtons({ defaultValue, setPurposeOfTravel }) {
           defaultChecked={defaultValue === 'study / mental work'}
           value='study / mental work'
           onChange={onRadioChange}
+          required
         />
         <label htmlFor='study-mental-work' style={{ padding: '5px' }}>
           study / mental work
@@ -54,6 +56,7 @@ export function RadioButtons({ defaultValue, setPurposeOfTravel }) {
           defaultChecked={defaultValue === 'physical work'}
           value='physical work'
           onChange={onRadioChange}
+          required
         />
         <label htmlFor='physical-work' style={{ padding: '5px' }}>
           physical work
@@ -67,6 +70,7 @@ export function RadioButtons({ defaultValue, setPurposeOfTravel }) {
           defaultChecked={defaultValue === 'high-risk sport'}
           value='high-risk sport'
           onChange={onRadioChange}
+          required
         />
         <label htmlFor='high-risk-sport' style={{ padding: '5px' }}>
           high-risk sport

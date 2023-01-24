@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { create } from 'zustand';
 
 export const useStageStore = create((set) => ({
@@ -7,6 +8,11 @@ export const useStageStore = create((set) => ({
   setFirstStage: (firstStage) => set((state) => ({ firstStage })),
   setSecondStage: (secondStage) => set((state) => ({ secondStage })),
   setThirdStage: (thirdStage) => set((state) => ({ thirdStage })),
+}));
+
+export const useStatusToastStore = create((set) => ({
+  statusToast: '',
+  setStatusToast: (statusToast) => set(() => ({ statusToast })),
 }));
 
 function Application({ Component, pageProps }) {

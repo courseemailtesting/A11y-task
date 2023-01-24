@@ -4,6 +4,7 @@ import FormWrapper from '@components/inputs/FormWrapper';
 import { Input } from '@components/inputs/Input';
 import { useStageStore } from 'pages/_app';
 import { BlackButton, Button } from '@components/inputs/Button';
+import { useEffect, useRef } from 'react';
 
 export function Step1() {
   const router = useRouter();
@@ -15,11 +16,28 @@ export function Step1() {
   const { firstName, secondName, birthday, phoneNumber, email, policyNumber } =
     firstStage;
 
-  console.log(firstStage);
+  const phoneInput = useRef();
+
+  useEffect(() => {});
   return (
     <FormWrapper
       onSubmit={(e) => {
         e.preventDefault();
+
+        const phoneNumberValue = e.target[3].value;
+        const phoneNumberRegex = /[0-9]{3}-[0-9]{3}-[0-9]{3}/;
+
+        if (phoneNumberRegex.test(phoneNumberValue)) {
+          phoneInput.current?.setCustomValidity('');
+          phoneInput.current?.reportValidity();
+        } else {
+          phoneInput.current?.setCustomValidity(
+            'Phone number input must be provided in the following pattern: XXX-XXX-XXX(X = any digit)'
+          );
+          phoneInput.current?.reportValidity();
+          return;
+        }
+
         router.push('/claim-report/step-2');
       }}
     >
@@ -32,6 +50,7 @@ export function Step1() {
           console.log(e.target.value);
           setFirstStage({ ...firstStage, firstName: e.target.value });
         }}
+        autocomplete='given-name'
       />
       <Input
         label='Second name'
@@ -41,6 +60,7 @@ export function Step1() {
         onChange={(e) =>
           setFirstStage({ ...firstStage, secondName: e.target.value })
         }
+        autocomplete='family-name'
       />
       <Input
         label='Birthday'
@@ -56,13 +76,15 @@ export function Step1() {
         label='Phone number'
         id='phone-number-input'
         type='tel'
-        pattern='[0-9]{3}-[0-9]{3}-[0-9]{3}'
+        ref={phoneInput}
         describedby='The number must match the following format 123-456-789 '
         required
         defaultValue={phoneNumber}
-        onChange={(e) =>
-          setFirstStage({ ...firstStage, phoneNumber: e.target.value })
-        }
+        onChange={(e) => {
+          phoneInput.current?.setCustomValidity('');
+          phoneInput.current?.reportValidity();
+          setFirstStage({ ...firstStage, phoneNumber: e.target.value });
+        }}
       />
       <Input
         label='Email'
@@ -73,6 +95,7 @@ export function Step1() {
         onChange={(e) =>
           setFirstStage({ ...firstStage, email: e.target.value })
         }
+        autocomplete='email'
       />
       <Input
         label='Policy number'

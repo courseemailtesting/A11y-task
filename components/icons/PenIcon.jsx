@@ -1,4 +1,4 @@
-export function PenIcon({ onClick }) {
+export function PenIcon({ onClick, labelAria }) {
   return (
     <svg
       fill='#000000'
@@ -10,7 +10,7 @@ export function PenIcon({ onClick }) {
       viewBox='0 0 486.395 486.395'
       onClick={onClick}
       role='img'
-      aria-label='edit item'
+      aria-label={labelAria}
     >
       <path
         d='M486.395,113.609l-46.198-46.198l46.016-46.016L465,0.182l-46.016,46.016L372.786,0L55.796,316.991L24.463,425.937

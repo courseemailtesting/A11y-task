@@ -55,6 +55,7 @@ export function Step2() {
         onChange={(e) =>
           setSecondStage({ ...secondStage, address: e.target.value })
         }
+        autocomplete='address-level3'
       />
       <Input
         label='Date'

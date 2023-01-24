@@ -42,7 +42,7 @@ const Li = styled('li')`
 export function InsuranceSection() {
   return (
     <MainBannerContainer>
-      <ImageReplacement alt='alt text' />
+      <ImageReplacement alt='An eldery person happily sitting by next tree in a park' />
       <ContentContainer>
         <SecondHeding>Insurance for International Visitors</SecondHeding>
         <span>
